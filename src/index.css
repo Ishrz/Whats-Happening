@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.scroll-hidden{
+  scrollbar-width: none;
+}
+
+html{
+  width: 100%;
+  height: 100%;
+
+}
