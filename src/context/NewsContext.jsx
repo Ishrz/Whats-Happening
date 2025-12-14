@@ -17,6 +17,9 @@ const NewsContextProvider=({children})=>{
             const response = await api.get(
                 `${url}&apikey=${import.meta.env.VITE_API_KEY}`
             );
+
+            console.log("NETLIFY GNEWS RESPONSE DATA:", response.data);
+
             setLoader(false)
             // console.log(response.data)
             return response.data;
