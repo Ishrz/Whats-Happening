@@ -6,10 +6,11 @@ const Category = ({className}) => {
 
     const {news,fetchNews,setNews}=useMycontext()
 
-    let categories=["technology","sports","science","health","general","entertainment","business"];
+    let categories=["world","nation","technology","sports","science","health","general","entertainment","business"];
 
     let handleClick=async(category)=>{
-      const data=await fetchNews(`/everything?q=${category}`)
+      const data=await fetchNews(`/top-headlines?category=${category}`)
+      // console.log(data.articles)
       setNews(data.articles)
     }
 
