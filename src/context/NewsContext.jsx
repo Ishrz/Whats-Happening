@@ -22,7 +22,7 @@ const NewsContextProvider=({children})=>{
             return response.data;
 
         }catch(error){
-            console.log(error)
+            console.log(`"Error at newsContext when fetching data", ${error.message}`)
             setLoader(false)
         }
     };

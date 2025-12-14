@@ -12,7 +12,7 @@ const News = ({className}) => {
     
     ;(async()=>{
       const data=await fetchNews()
-      console.log(data.articles)
+      // console.log(data.articles)
       setNews(data.articles)
     })()
     
