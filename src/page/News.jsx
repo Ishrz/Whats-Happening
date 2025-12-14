@@ -12,6 +12,7 @@ const News = ({className}) => {
     
     ;(async()=>{
       const data=await fetchNews()
+      // console.log(data.articles)
       setNews(data.articles)
     })()
     
@@ -26,7 +27,7 @@ const News = ({className}) => {
 
     <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3  ${className}`}>
     {news.map( (newsDetails,index)=> {
-      if(!newsDetails.urlToImage) return null;
+      if(!newsDetails.image) return null;
       return(
         <NewsCard key={index} detail={newsDetails} />
       )
@@ -45,8 +46,10 @@ const NewsCard=({detail})=>{
   <figure>
     <img
       className='w-full aspect-video object-contain'
-      src={detail?.urlToImage}
-      alt="Shoes" />
+      src={detail?.image}
+      alt={detail.title}
+      onError={(e)=> e.target.onerror = null} 
+    />
   </figure>
   <div className="card-body">
     <h2 className="card-title line-clamp-2">{detail?.title}</h2>

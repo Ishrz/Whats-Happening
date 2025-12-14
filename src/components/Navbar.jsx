@@ -14,11 +14,11 @@ const Navbar = ({className}) => {
     timer=setTimeout(async()=>{
       try{
         // if(!searchValue) throw new Error("search is empty"); 
-          const data=await fetchNews(`/everything?q=${searchValue}`)
+          const data=await fetchNews(`/search?q=${searchValue}`)
           setNews(data.articles)
           e.target.value=""
         }catch(err){
-          console.log("something went wrong data not fetch",err)
+          console.log("something went wrong data not fetch on search",err)
         }
 
     }, 1000);
@@ -31,7 +31,7 @@ const Navbar = ({className}) => {
     <Wrapper>
     <div className="navbar  shadow-sm">
   <div className="flex-1">
-    <a className="btn btn-ghost text-xl font-bold tracking-tight bg-linear-to-r from-black-200 to-green-500 text-red-500 rounded-r-xl">Whats Happening</a>
+    <a className="btn btn-ghost text-xl font-bold tracking-tight bg-linear-to-r from-black-200 to-green-500 text-red-500 rounded-r-xl animate-pulse">Whats Happening</a>
   </div>
   <div className="flex gap-2">
     <input onChange={(evt)=> searchHandler(evt)}  type="text"  placeholder="Search" className="input input-bordered w-24 md:w-auto" />

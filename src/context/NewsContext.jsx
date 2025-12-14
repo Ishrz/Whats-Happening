@@ -11,17 +11,21 @@ const NewsContextProvider=({children})=>{
     const [loader,setLoader]=useState(false)
 
     
-    const fetchNews = async (url="/everything?q=bitcoin") => {
+    const fetchNews = async (url="/top-headlines?category=general") => {
         setLoader(true)
         try{
             const response = await api.get(
-                `${url}&apiKey=${import.meta.env.VITE_API_KEY}`
+                `${url}&apikey=${import.meta.env.VITE_API_KEY}`
             );
+
+            console.log("NETLIFY GNEWS RESPONSE DATA:", response.data);
+
             setLoader(false)
+            // console.log(response.data)
             return response.data;
 
         }catch(error){
-            console.log(error)
+            console.log(`"Error at newsContext when fetching data", ${error.message}`)
             setLoader(false)
         }
     };
