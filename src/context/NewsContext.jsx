@@ -11,7 +11,7 @@ const NewsContextProvider=({children})=>{
     const [loader,setLoader]=useState(false)
 
     
-    const fetchNews = async (url="/everything?q=bitcoin") => {
+    const fetchNews = async (url="/top-headlines?category=general") => {
         setLoader(true)
         try{
             const response = await api.get(
