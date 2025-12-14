@@ -15,9 +15,10 @@ const NewsContextProvider=({children})=>{
         setLoader(true)
         try{
             const response = await api.get(
-                `${url}&apiKey=${import.meta.env.VITE_API_KEY}`
+                `${url}&apikey=${import.meta.env.VITE_API_KEY}`
             );
             setLoader(false)
+            // console.log(response.data)
             return response.data;
 
         }catch(error){
