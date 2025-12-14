@@ -47,7 +47,9 @@ const NewsCard=({detail})=>{
     <img
       className='w-full aspect-video object-contain'
       src={detail?.image}
-      alt="Shoes" />
+      alt={detail.title}
+      onError={(e)=> e.target.onerror = null} 
+    />
   </figure>
   <div className="card-body">
     <h2 className="card-title line-clamp-2">{detail?.title}</h2>
